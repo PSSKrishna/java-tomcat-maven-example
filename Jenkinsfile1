@@ -8,7 +8,7 @@ pipeline {
                 /* For Mac&linux Machine */
                 //sh 'mvn clean package'
             }
-            Post {
+            post {
               success {
                  echo 'Now Archieving.......'
                  archiecveArtifacts artifacts: '**/*.war'
