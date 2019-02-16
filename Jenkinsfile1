@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage ('Build Servlet Project') {
+            steps {
+                /* For windows Machines */
+                bat 'mvn clean package'
+                /* For Mac&linux Machine */
+                //sh 'mvn clean package'
+            }
+            Post {
+              success {
+                 echo 'Now Archieving.......'
+                 archiecveArtifacts artifacts: '**/*.war'
+        }
+      }
+    }
+  }
+}
